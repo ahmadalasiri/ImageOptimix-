@@ -1,0 +1,13 @@
+{
+  "name": "image-optimization",
+  "version": "1.0.0",
+  "description": "Image optimization tool that converts images to AVIF format",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "sharp": "^0.32.6"
+  }
+}
