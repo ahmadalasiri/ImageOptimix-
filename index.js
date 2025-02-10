@@ -11,9 +11,12 @@ async function createDirectories() {
   try {
     await fs.mkdir(INPUT_DIR, { recursive: true });
     await fs.mkdir(OUTPUT_DIR, { recursive: true });
-    
+
     // Create timestamped directory
-    const timestamp = new Date().toISOString().slice(0, 19).replace(/[:.]/g, '-');
+    const timestamp = new Date()
+      .toISOString()
+      .slice(0, 19)
+      .replace(/[:.]/g, "-");
     const timeStampedDir = path.join(OUTPUT_DIR, timestamp);
     await fs.mkdir(timeStampedDir, { recursive: true });
     return timeStampedDir;
