@@ -5,6 +5,7 @@ import path from "path";
 const IMAGE_QUALITY = 60;
 const INPUT_DIR = "input";
 const OUTPUT_DIR = "output";
+const MAX_SIZE = 700 * 1024; // 700KB in bytes
 
 // Create input and output directories if they don't exist
 async function createDirectories() {
@@ -35,9 +36,8 @@ async function processImage(inputPath, outputDir) {
   try {
     let quality = IMAGE_QUALITY;
     let outputSize = Infinity;
-    const MAX_SIZE = 1024 * 1024; // 1MB in bytes
 
-    // Keep reducing quality until file size is under 1MB
+    // Keep reducing quality until file size is under 700KB
     while (outputSize > MAX_SIZE && quality > 1) {
       await sharp(inputPath)
         .avif({
